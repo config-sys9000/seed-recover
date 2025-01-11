@@ -1,51 +1,58 @@
-# Seed Savior
+‼️ Внимание ‼️ 
+Это копия репозитория. Оригинальная версия инструмента, доступная ранее по ссылке https://kzen-networks.github.io/, больше недоступна.
+	•	При использовании данного инструмента вы вводите свою мнемоническую фразу в “горячем” виде, что создает потенциальную угрозу для безопасности ваших средств. Подходите к работе с ним крайне осторожно.
+	•	Обязательно ознакомьтесь с видеоинструкцией, где подробно объясняется, как безопасно работать с данным скриптом.
+	•	Если у вас есть сомнения в безопасности использования или вы не уверены в своих действиях, обратитесь за помощью в техподдержку Sunscrypt по этой ссылке.
 
-A tool for recovering BIP39 seed phrases.
+Ниже представлен перевод оригинального описания документа на русский язык, выполненный командой Sunscrypt.
+Только вы несете ответственность за последствия использования данного инструмента. Соблюдайте меры предосторожности и убедитесь, что вы понимаете риски.
 
-For more context and background, please see our blog post https://medium.com/kzen-networks/the-wallet-seed-saviors-2cad8ae542f3 
+Seed Savior
 
-The tool is based on the bip39 project by Ian Coleman https://github.com/iancoleman/bip39
+Инструмент для восстановления мнемонических фраз BIP39.
 
-## Online Version
+Для получения дополнительного контекста и предыстории, пожалуйста, ознакомьтесь с нашей статьей в блоге:
+https://medium.com/kzen-networks/the-wallet-seed-saviors-2cad8ae542f3
+
+Этот инструмент основан на проекте BIP39, разработанном Ианом Коулманом:
+https://github.com/iancoleman/bip39
+
+Онлайн-версия
 
 https://kzen-networks.github.io/mnemonic-recovery/src/index.html
 
-## Standalone offline version
+Автономная оффлайн-версия
 
-Download `mnemonic-standalone.html`
+	1.	Скачайте файл mnemonic-standalone.html.
+	2.	Откройте файл в браузере, дважды щелкнув по нему.
+	3.	Этот файл можно скомпилировать из исходного кода с помощью команды:
+python compile.py
 
-Open the file in a browser by double clicking it.
+Использование
 
-This can be compiled from source using the command `python compile.py`
+Введите вашу мнемоническую фразу в поле “BIP39 Phrase”. Если какое-либо слово отсутствует или неизвестно, вместо него введите ”?”, и инструмент предложит все возможные варианты. Если слово введено неверно, инструмент постарается предложить наиболее близкий вариант.
 
-## Usage
+Инструмент предоставит все возможные варианты для пропущенного слова, а также соответствующие публичные адреса для Bitcoin и Ethereum. Чтобы проверить, является ли один из предложенных адресов верным, вы можете нажать на предложенный адрес и проверить его историю транзакций через блок-эксплорер.
 
-Enter your seed phrase into the 'BIP39 Phrase' field. If a word is missing or unknown, please type "?" instead and the tool will find all relevant options. If a word is wrong, the tool will try to suggest the closest option. 
+Пример работы
 
-The tool will suggest all relevant options for the missing word and the derived public addresses for Bitcoin anmd Ethereum. To find out if one of the suggested addresses is actually the right one, you can click on the suggested address  tocheck the address' transaction history on a block explorer.
+В данном примере мы вводим следующую мнемоническую фразу:
+“phrase brief ceiling dream rack install fault insane panic surround glory ? library brother hill sauce access child notice picnic dinner panda purity poem”
 
-## Demo
+Инструмент предложит несколько вариантов для пропущенного слова, и правильным вариантом будет “asset”. Это можно подтвердить, нажав на ссылку предложенного Ethereum-адреса
+(“0x2dfF20b40504f99c6314ac30e8DF5c02dd8058e7”, который находится в колонке “BIP44 ETH Address”), и проверив, что у данного адреса есть история транзакций.
 
-In this demo we enter "phrase brief ceiling dream rack install fault insane panic surround glory ? library brother hill sauce access child notice picnic dinner panda purity poem"
+Внесение изменений
 
-The tool suggests several options for the missing word and the relevant one will be "asset". We can verify that by clicking on the link of the dervied Ethereum address ("0x2dfF20b40504f99c6314ac30e8DF5c02dd8058e7" listed in the "BIP44 ETH Address" column) and checking the address has transaction history.
+Пожалуйста, не вносите изменения в файл mnemonic-standalone.html, так как он будет перезаписан во время компиляции с помощью compile.py.
 
-![Demo](/src/img/seed%20demo%20annotated.gif "Demo")
+Внесите изменения в файлы внутри папки src/*.
 
+Изменения применяются при выпуске новой версии с помощью команды:
+python compile.py.
+Поэтому, пожалуйста, не добавляйте изменения в mnemonic.html.
 
-## Making changes
+Лицензия
 
-Please do not make modifications to `mnemonic-standalone.html`, since they will
-be overwritten by `compile.py`.
-
-Make changes in `src/*`.
-
-Changes are applied during release using the command `python compile.py`, so
-please do not commit changes to `mnemonic.html`
-
-
-
-# License
-
-This Seed Svior tool is released under the terms of the MIT license. See LICENSE for
-more information or see https://opensource.org/licenses/MIT.
+Инструмент Seed Savior распространяется в соответствии с условиями лицензии MIT. Подробнее см. файл LICENSE или перейдите по ссылке:
+https://opensource.org/licenses/MIT.
